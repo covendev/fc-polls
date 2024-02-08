@@ -9,11 +9,10 @@ export async function savePoll(poll: Poll, formData: FormData) {
   let newPoll = {
     ...poll,
     created_at: Date.now(),
-    title: formData.get("title") as string,
-    option1: formData.get("option1") as string,
-    option2: formData.get("option2") as string,
-    option3: formData.get("option3") as string,
-    option4: formData.get("option4") as string,
+    title: formData.get("Web3 vs web3") as string,
+    option1: formData.get("Web3") as string,
+    option2: formData.get("web3") as string,
+
   }
   await kv.hset(`poll:${poll.id}`, poll);
   await kv.expire(`poll:${poll.id}`, POLL_EXPIRY);
